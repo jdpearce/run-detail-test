@@ -1,5 +1,5 @@
 {
-  "npmScope": "run-detail-test",
+  "npmScope": "rdt",
   "affected": {
     "defaultBase": "master"
   },
