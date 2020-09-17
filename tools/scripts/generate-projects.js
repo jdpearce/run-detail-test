@@ -1,5 +1,6 @@
 const cp = require('child_process');
 const fs = require('fs');
+const nxjson = require('../../nx.json');
 
 const INIT_APP_INDEX = 0;
 const NUMBER_OF_APPS = 1;
@@ -31,7 +32,9 @@ function generateApp(appName) {
   });
 
   const selectors = libNames
-    .map((c) => `<largerepo-${c}parent></largerepo-${c}parent>`)
+    .map(
+      (c) => `<${nxjson.npmScope}-${c}parent></${nxjson.npmScope}-${c}parent>`
+    )
     .join('\n');
   fs.writeFileSync(
     `apps/${appName}/src/app/app.component.html`,
@@ -45,9 +48,9 @@ function generateApp(appName) {
   const imports = libNames
     .map(
       (libName) =>
-        `import { ${moduleName(
-          libName
-        )} } from '@largerepo/${appName}/${libName}/${libName}';`
+        `import { ${moduleName(libName)} } from '@${
+          nxjson.npmScope
+        }/${appName}/${libName}/${libName}';`
     )
     .join('\n');
 
@@ -95,9 +98,9 @@ function generateParentLib(appName, libName) {
   const imports = libNames
     .map(
       (childLibName) =>
-        `import { ${moduleName(
-          childLibName
-        )} } from '@largerepo/${appName}/${libName}/${childLibName}';`
+        `import { ${moduleName(childLibName)} } from '@${
+          nxjson.npmScope
+        }/${appName}/${libName}/${childLibName}';`
     )
     .join('\n');
   const moduleImports = libNames
@@ -124,7 +127,8 @@ function generateParentLib(appName, libName) {
   );
   const selectors = libNames
     .map(
-      (c) => `<largerepo-${libName}${c}parent></largerepo-${libName}${c}parent>`
+      (c) =>
+        `<${nxjson.npmScope}-${libName}${c}parent></${nxjson.npmScope}-${libName}${c}parent>`
     )
     .join('\n');
   fs.writeFileSync(
@@ -134,6 +138,18 @@ function generateParentLib(appName, libName) {
       ${selectors}
     </div>
   `
+  );
+
+  // update the parent component spec file
+  const specFilePath = `libs/${appName}/${libName}/${libName}/src/lib/${libName}parent/${libName}parent.component.spec.ts`;
+  const content = fs.readFileSync(specFilePath).toString();
+  fs.writeFileSync(
+    specFilePath,
+    `import { NO_ERRORS_SCHEMA } from '@angular/core';\n` +
+      content.replace(
+        `parentComponent]`,
+        `parentComponent], schemas: [NO_ERRORS_SCHEMA]`
+      )
   );
 }
 
@@ -159,7 +175,7 @@ function generateChildLib(appName, libName, childLibName) {
   );
 
   const selectors = componentNames
-    .map((c) => `<largerepo-${c}></largerepo-${c}>`)
+    .map((c) => `<${nxjson.npmScope}-${c}></${nxjson.npmScope}-${c}>`)
     .join('\n');
 
   fs.writeFileSync(
@@ -169,6 +185,18 @@ function generateChildLib(appName, libName, childLibName) {
       ${selectors}
     </div>
   `
+  );
+
+  // update the parent component spec file
+  const specFilePath = `libs/${appName}/${libName}/${childLibName}/src/lib/${libName}${childLibName}parent/${libName}${childLibName}parent.component.spec.ts`;
+  const content = fs.readFileSync(specFilePath).toString();
+  fs.writeFileSync(
+    specFilePath,
+    `import { NO_ERRORS_SCHEMA } from '@angular/core';\n` +
+      content.replace(
+        `parentComponent ]`,
+        `parentComponent], schemas: [NO_ERRORS_SCHEMA]`
+      )
   );
 }
 
