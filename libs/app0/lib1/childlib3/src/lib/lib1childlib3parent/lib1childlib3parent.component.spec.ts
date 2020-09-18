@@ -9,9 +9,8 @@ describe('Lib1childlib3parentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Lib1childlib3parentComponent], schemas: [NO_ERRORS_SCHEMA]
-    })
-    .compileComponents();
+      declarations: [Lib1childlib3parentComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

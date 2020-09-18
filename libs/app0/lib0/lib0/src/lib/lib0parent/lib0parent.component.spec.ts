@@ -10,7 +10,6 @@ describe('Lib0parentComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [Lib0parentComponent],
-      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 
