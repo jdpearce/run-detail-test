@@ -1,7 +1,2992 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "app0": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/app0",
+      "sourceRoot": "apps/app0/src",
+      "prefix": "rdt",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/app0",
+            "index": "apps/app0/src/index.html",
+            "main": "apps/app0/src/main.ts",
+            "polyfills": "apps/app0/src/polyfills.ts",
+            "tsConfig": "apps/app0/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/app0/src/favicon.ico", "apps/app0/src/assets"],
+            "styles": ["apps/app0/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/app0/src/environments/environment.ts",
+                  "with": "apps/app0/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "app0:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "app0:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app0:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/app0/tsconfig.app.json",
+              "apps/app0/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/app0/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/app0/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "app0-e2e": {
+      "root": "apps/app0-e2e",
+      "sourceRoot": "apps/app0-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/app0-e2e/cypress.json",
+            "tsConfig": "apps/app0-e2e/tsconfig.e2e.json",
+            "devServerTarget": "app0:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "app0:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/app0-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/app0-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "app0-lib0-lib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib0/lib0",
+      "sourceRoot": "libs/app0/lib0/lib0/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib0/lib0/tsconfig.lib.json",
+              "libs/app0/lib0/lib0/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib0/lib0/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib0/lib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib0-childlib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib0/childlib0",
+      "sourceRoot": "libs/app0/lib0/childlib0/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib0/childlib0/tsconfig.lib.json",
+              "libs/app0/lib0/childlib0/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib0/childlib0/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib0/childlib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib0-childlib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib0/childlib1",
+      "sourceRoot": "libs/app0/lib0/childlib1/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib0/childlib1/tsconfig.lib.json",
+              "libs/app0/lib0/childlib1/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib0/childlib1/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib0/childlib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib0-childlib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib0/childlib2",
+      "sourceRoot": "libs/app0/lib0/childlib2/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib0/childlib2/tsconfig.lib.json",
+              "libs/app0/lib0/childlib2/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib0/childlib2/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib0/childlib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib0-childlib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib0/childlib3",
+      "sourceRoot": "libs/app0/lib0/childlib3/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib0/childlib3/tsconfig.lib.json",
+              "libs/app0/lib0/childlib3/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib0/childlib3/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib0/childlib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib0-childlib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib0/childlib4",
+      "sourceRoot": "libs/app0/lib0/childlib4/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib0/childlib4/tsconfig.lib.json",
+              "libs/app0/lib0/childlib4/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib0/childlib4/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib0/childlib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib0-childlib5": {
+      "projectType": "library",
+      "root": "libs/app0/lib0/childlib5",
+      "sourceRoot": "libs/app0/lib0/childlib5/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib0/childlib5/tsconfig.lib.json",
+              "libs/app0/lib0/childlib5/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib0/childlib5/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib0/childlib5/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib0-childlib6": {
+      "projectType": "library",
+      "root": "libs/app0/lib0/childlib6",
+      "sourceRoot": "libs/app0/lib0/childlib6/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib0/childlib6/tsconfig.lib.json",
+              "libs/app0/lib0/childlib6/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib0/childlib6/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib0/childlib6/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib0-childlib7": {
+      "projectType": "library",
+      "root": "libs/app0/lib0/childlib7",
+      "sourceRoot": "libs/app0/lib0/childlib7/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib0/childlib7/tsconfig.lib.json",
+              "libs/app0/lib0/childlib7/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib0/childlib7/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib0/childlib7/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib0-childlib8": {
+      "projectType": "library",
+      "root": "libs/app0/lib0/childlib8",
+      "sourceRoot": "libs/app0/lib0/childlib8/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib0/childlib8/tsconfig.lib.json",
+              "libs/app0/lib0/childlib8/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib0/childlib8/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib0/childlib8/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib0-childlib9": {
+      "projectType": "library",
+      "root": "libs/app0/lib0/childlib9",
+      "sourceRoot": "libs/app0/lib0/childlib9/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib0/childlib9/tsconfig.lib.json",
+              "libs/app0/lib0/childlib9/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib0/childlib9/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib0/childlib9/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib1-lib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib1/lib1",
+      "sourceRoot": "libs/app0/lib1/lib1/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib1/lib1/tsconfig.lib.json",
+              "libs/app0/lib1/lib1/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib1/lib1/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib1/lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib1-childlib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib1/childlib0",
+      "sourceRoot": "libs/app0/lib1/childlib0/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib1/childlib0/tsconfig.lib.json",
+              "libs/app0/lib1/childlib0/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib1/childlib0/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib1/childlib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib1-childlib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib1/childlib1",
+      "sourceRoot": "libs/app0/lib1/childlib1/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib1/childlib1/tsconfig.lib.json",
+              "libs/app0/lib1/childlib1/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib1/childlib1/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib1/childlib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib1-childlib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib1/childlib2",
+      "sourceRoot": "libs/app0/lib1/childlib2/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib1/childlib2/tsconfig.lib.json",
+              "libs/app0/lib1/childlib2/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib1/childlib2/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib1/childlib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib1-childlib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib1/childlib3",
+      "sourceRoot": "libs/app0/lib1/childlib3/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib1/childlib3/tsconfig.lib.json",
+              "libs/app0/lib1/childlib3/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib1/childlib3/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib1/childlib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib1-childlib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib1/childlib4",
+      "sourceRoot": "libs/app0/lib1/childlib4/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib1/childlib4/tsconfig.lib.json",
+              "libs/app0/lib1/childlib4/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib1/childlib4/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib1/childlib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib1-childlib5": {
+      "projectType": "library",
+      "root": "libs/app0/lib1/childlib5",
+      "sourceRoot": "libs/app0/lib1/childlib5/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib1/childlib5/tsconfig.lib.json",
+              "libs/app0/lib1/childlib5/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib1/childlib5/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib1/childlib5/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib1-childlib6": {
+      "projectType": "library",
+      "root": "libs/app0/lib1/childlib6",
+      "sourceRoot": "libs/app0/lib1/childlib6/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib1/childlib6/tsconfig.lib.json",
+              "libs/app0/lib1/childlib6/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib1/childlib6/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib1/childlib6/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib1-childlib7": {
+      "projectType": "library",
+      "root": "libs/app0/lib1/childlib7",
+      "sourceRoot": "libs/app0/lib1/childlib7/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib1/childlib7/tsconfig.lib.json",
+              "libs/app0/lib1/childlib7/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib1/childlib7/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib1/childlib7/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib1-childlib8": {
+      "projectType": "library",
+      "root": "libs/app0/lib1/childlib8",
+      "sourceRoot": "libs/app0/lib1/childlib8/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib1/childlib8/tsconfig.lib.json",
+              "libs/app0/lib1/childlib8/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib1/childlib8/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib1/childlib8/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib1-childlib9": {
+      "projectType": "library",
+      "root": "libs/app0/lib1/childlib9",
+      "sourceRoot": "libs/app0/lib1/childlib9/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib1/childlib9/tsconfig.lib.json",
+              "libs/app0/lib1/childlib9/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib1/childlib9/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib1/childlib9/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib2-lib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib2/lib2",
+      "sourceRoot": "libs/app0/lib2/lib2/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib2/lib2/tsconfig.lib.json",
+              "libs/app0/lib2/lib2/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib2/lib2/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib2/lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib2-childlib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib2/childlib0",
+      "sourceRoot": "libs/app0/lib2/childlib0/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib2/childlib0/tsconfig.lib.json",
+              "libs/app0/lib2/childlib0/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib2/childlib0/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib2/childlib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib2-childlib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib2/childlib1",
+      "sourceRoot": "libs/app0/lib2/childlib1/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib2/childlib1/tsconfig.lib.json",
+              "libs/app0/lib2/childlib1/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib2/childlib1/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib2/childlib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib2-childlib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib2/childlib2",
+      "sourceRoot": "libs/app0/lib2/childlib2/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib2/childlib2/tsconfig.lib.json",
+              "libs/app0/lib2/childlib2/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib2/childlib2/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib2/childlib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib2-childlib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib2/childlib3",
+      "sourceRoot": "libs/app0/lib2/childlib3/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib2/childlib3/tsconfig.lib.json",
+              "libs/app0/lib2/childlib3/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib2/childlib3/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib2/childlib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib2-childlib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib2/childlib4",
+      "sourceRoot": "libs/app0/lib2/childlib4/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib2/childlib4/tsconfig.lib.json",
+              "libs/app0/lib2/childlib4/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib2/childlib4/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib2/childlib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib2-childlib5": {
+      "projectType": "library",
+      "root": "libs/app0/lib2/childlib5",
+      "sourceRoot": "libs/app0/lib2/childlib5/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib2/childlib5/tsconfig.lib.json",
+              "libs/app0/lib2/childlib5/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib2/childlib5/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib2/childlib5/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib2-childlib6": {
+      "projectType": "library",
+      "root": "libs/app0/lib2/childlib6",
+      "sourceRoot": "libs/app0/lib2/childlib6/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib2/childlib6/tsconfig.lib.json",
+              "libs/app0/lib2/childlib6/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib2/childlib6/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib2/childlib6/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib2-childlib7": {
+      "projectType": "library",
+      "root": "libs/app0/lib2/childlib7",
+      "sourceRoot": "libs/app0/lib2/childlib7/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib2/childlib7/tsconfig.lib.json",
+              "libs/app0/lib2/childlib7/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib2/childlib7/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib2/childlib7/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib2-childlib8": {
+      "projectType": "library",
+      "root": "libs/app0/lib2/childlib8",
+      "sourceRoot": "libs/app0/lib2/childlib8/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib2/childlib8/tsconfig.lib.json",
+              "libs/app0/lib2/childlib8/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib2/childlib8/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib2/childlib8/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib2-childlib9": {
+      "projectType": "library",
+      "root": "libs/app0/lib2/childlib9",
+      "sourceRoot": "libs/app0/lib2/childlib9/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib2/childlib9/tsconfig.lib.json",
+              "libs/app0/lib2/childlib9/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib2/childlib9/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib2/childlib9/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib3-lib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib3/lib3",
+      "sourceRoot": "libs/app0/lib3/lib3/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib3/lib3/tsconfig.lib.json",
+              "libs/app0/lib3/lib3/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib3/lib3/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib3/lib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib3-childlib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib3/childlib0",
+      "sourceRoot": "libs/app0/lib3/childlib0/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib3/childlib0/tsconfig.lib.json",
+              "libs/app0/lib3/childlib0/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib3/childlib0/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib3/childlib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib3-childlib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib3/childlib1",
+      "sourceRoot": "libs/app0/lib3/childlib1/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib3/childlib1/tsconfig.lib.json",
+              "libs/app0/lib3/childlib1/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib3/childlib1/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib3/childlib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib3-childlib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib3/childlib2",
+      "sourceRoot": "libs/app0/lib3/childlib2/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib3/childlib2/tsconfig.lib.json",
+              "libs/app0/lib3/childlib2/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib3/childlib2/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib3/childlib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib3-childlib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib3/childlib3",
+      "sourceRoot": "libs/app0/lib3/childlib3/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib3/childlib3/tsconfig.lib.json",
+              "libs/app0/lib3/childlib3/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib3/childlib3/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib3/childlib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib3-childlib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib3/childlib4",
+      "sourceRoot": "libs/app0/lib3/childlib4/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib3/childlib4/tsconfig.lib.json",
+              "libs/app0/lib3/childlib4/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib3/childlib4/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib3/childlib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib3-childlib5": {
+      "projectType": "library",
+      "root": "libs/app0/lib3/childlib5",
+      "sourceRoot": "libs/app0/lib3/childlib5/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib3/childlib5/tsconfig.lib.json",
+              "libs/app0/lib3/childlib5/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib3/childlib5/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib3/childlib5/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib3-childlib6": {
+      "projectType": "library",
+      "root": "libs/app0/lib3/childlib6",
+      "sourceRoot": "libs/app0/lib3/childlib6/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib3/childlib6/tsconfig.lib.json",
+              "libs/app0/lib3/childlib6/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib3/childlib6/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib3/childlib6/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib3-childlib7": {
+      "projectType": "library",
+      "root": "libs/app0/lib3/childlib7",
+      "sourceRoot": "libs/app0/lib3/childlib7/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib3/childlib7/tsconfig.lib.json",
+              "libs/app0/lib3/childlib7/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib3/childlib7/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib3/childlib7/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib3-childlib8": {
+      "projectType": "library",
+      "root": "libs/app0/lib3/childlib8",
+      "sourceRoot": "libs/app0/lib3/childlib8/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib3/childlib8/tsconfig.lib.json",
+              "libs/app0/lib3/childlib8/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib3/childlib8/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib3/childlib8/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib3-childlib9": {
+      "projectType": "library",
+      "root": "libs/app0/lib3/childlib9",
+      "sourceRoot": "libs/app0/lib3/childlib9/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib3/childlib9/tsconfig.lib.json",
+              "libs/app0/lib3/childlib9/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib3/childlib9/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib3/childlib9/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib4-lib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib4/lib4",
+      "sourceRoot": "libs/app0/lib4/lib4/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib4/lib4/tsconfig.lib.json",
+              "libs/app0/lib4/lib4/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib4/lib4/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib4/lib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib4-childlib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib4/childlib0",
+      "sourceRoot": "libs/app0/lib4/childlib0/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib4/childlib0/tsconfig.lib.json",
+              "libs/app0/lib4/childlib0/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib4/childlib0/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib4/childlib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib4-childlib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib4/childlib1",
+      "sourceRoot": "libs/app0/lib4/childlib1/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib4/childlib1/tsconfig.lib.json",
+              "libs/app0/lib4/childlib1/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib4/childlib1/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib4/childlib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib4-childlib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib4/childlib2",
+      "sourceRoot": "libs/app0/lib4/childlib2/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib4/childlib2/tsconfig.lib.json",
+              "libs/app0/lib4/childlib2/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib4/childlib2/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib4/childlib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib4-childlib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib4/childlib3",
+      "sourceRoot": "libs/app0/lib4/childlib3/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib4/childlib3/tsconfig.lib.json",
+              "libs/app0/lib4/childlib3/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib4/childlib3/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib4/childlib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib4-childlib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib4/childlib4",
+      "sourceRoot": "libs/app0/lib4/childlib4/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib4/childlib4/tsconfig.lib.json",
+              "libs/app0/lib4/childlib4/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib4/childlib4/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib4/childlib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib4-childlib5": {
+      "projectType": "library",
+      "root": "libs/app0/lib4/childlib5",
+      "sourceRoot": "libs/app0/lib4/childlib5/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib4/childlib5/tsconfig.lib.json",
+              "libs/app0/lib4/childlib5/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib4/childlib5/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib4/childlib5/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib4-childlib6": {
+      "projectType": "library",
+      "root": "libs/app0/lib4/childlib6",
+      "sourceRoot": "libs/app0/lib4/childlib6/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib4/childlib6/tsconfig.lib.json",
+              "libs/app0/lib4/childlib6/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib4/childlib6/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib4/childlib6/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib4-childlib7": {
+      "projectType": "library",
+      "root": "libs/app0/lib4/childlib7",
+      "sourceRoot": "libs/app0/lib4/childlib7/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib4/childlib7/tsconfig.lib.json",
+              "libs/app0/lib4/childlib7/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib4/childlib7/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib4/childlib7/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib4-childlib8": {
+      "projectType": "library",
+      "root": "libs/app0/lib4/childlib8",
+      "sourceRoot": "libs/app0/lib4/childlib8/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib4/childlib8/tsconfig.lib.json",
+              "libs/app0/lib4/childlib8/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib4/childlib8/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib4/childlib8/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib4-childlib9": {
+      "projectType": "library",
+      "root": "libs/app0/lib4/childlib9",
+      "sourceRoot": "libs/app0/lib4/childlib9/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib4/childlib9/tsconfig.lib.json",
+              "libs/app0/lib4/childlib9/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib4/childlib9/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib4/childlib9/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib5-lib5": {
+      "projectType": "library",
+      "root": "libs/app0/lib5/lib5",
+      "sourceRoot": "libs/app0/lib5/lib5/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib5/lib5/tsconfig.lib.json",
+              "libs/app0/lib5/lib5/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib5/lib5/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib5/lib5/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib5-childlib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib5/childlib0",
+      "sourceRoot": "libs/app0/lib5/childlib0/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib5/childlib0/tsconfig.lib.json",
+              "libs/app0/lib5/childlib0/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib5/childlib0/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib5/childlib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib5-childlib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib5/childlib1",
+      "sourceRoot": "libs/app0/lib5/childlib1/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib5/childlib1/tsconfig.lib.json",
+              "libs/app0/lib5/childlib1/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib5/childlib1/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib5/childlib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib5-childlib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib5/childlib2",
+      "sourceRoot": "libs/app0/lib5/childlib2/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib5/childlib2/tsconfig.lib.json",
+              "libs/app0/lib5/childlib2/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib5/childlib2/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib5/childlib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib5-childlib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib5/childlib3",
+      "sourceRoot": "libs/app0/lib5/childlib3/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib5/childlib3/tsconfig.lib.json",
+              "libs/app0/lib5/childlib3/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib5/childlib3/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib5/childlib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib5-childlib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib5/childlib4",
+      "sourceRoot": "libs/app0/lib5/childlib4/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib5/childlib4/tsconfig.lib.json",
+              "libs/app0/lib5/childlib4/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib5/childlib4/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib5/childlib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib5-childlib5": {
+      "projectType": "library",
+      "root": "libs/app0/lib5/childlib5",
+      "sourceRoot": "libs/app0/lib5/childlib5/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib5/childlib5/tsconfig.lib.json",
+              "libs/app0/lib5/childlib5/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib5/childlib5/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib5/childlib5/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib5-childlib6": {
+      "projectType": "library",
+      "root": "libs/app0/lib5/childlib6",
+      "sourceRoot": "libs/app0/lib5/childlib6/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib5/childlib6/tsconfig.lib.json",
+              "libs/app0/lib5/childlib6/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib5/childlib6/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib5/childlib6/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib5-childlib7": {
+      "projectType": "library",
+      "root": "libs/app0/lib5/childlib7",
+      "sourceRoot": "libs/app0/lib5/childlib7/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib5/childlib7/tsconfig.lib.json",
+              "libs/app0/lib5/childlib7/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib5/childlib7/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib5/childlib7/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib5-childlib8": {
+      "projectType": "library",
+      "root": "libs/app0/lib5/childlib8",
+      "sourceRoot": "libs/app0/lib5/childlib8/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib5/childlib8/tsconfig.lib.json",
+              "libs/app0/lib5/childlib8/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib5/childlib8/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib5/childlib8/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib5-childlib9": {
+      "projectType": "library",
+      "root": "libs/app0/lib5/childlib9",
+      "sourceRoot": "libs/app0/lib5/childlib9/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib5/childlib9/tsconfig.lib.json",
+              "libs/app0/lib5/childlib9/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib5/childlib9/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib5/childlib9/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib6-lib6": {
+      "projectType": "library",
+      "root": "libs/app0/lib6/lib6",
+      "sourceRoot": "libs/app0/lib6/lib6/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib6/lib6/tsconfig.lib.json",
+              "libs/app0/lib6/lib6/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib6/lib6/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib6/lib6/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib6-childlib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib6/childlib0",
+      "sourceRoot": "libs/app0/lib6/childlib0/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib6/childlib0/tsconfig.lib.json",
+              "libs/app0/lib6/childlib0/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib6/childlib0/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib6/childlib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib6-childlib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib6/childlib1",
+      "sourceRoot": "libs/app0/lib6/childlib1/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib6/childlib1/tsconfig.lib.json",
+              "libs/app0/lib6/childlib1/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib6/childlib1/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib6/childlib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib6-childlib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib6/childlib2",
+      "sourceRoot": "libs/app0/lib6/childlib2/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib6/childlib2/tsconfig.lib.json",
+              "libs/app0/lib6/childlib2/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib6/childlib2/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib6/childlib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib6-childlib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib6/childlib3",
+      "sourceRoot": "libs/app0/lib6/childlib3/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib6/childlib3/tsconfig.lib.json",
+              "libs/app0/lib6/childlib3/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib6/childlib3/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib6/childlib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib6-childlib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib6/childlib4",
+      "sourceRoot": "libs/app0/lib6/childlib4/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib6/childlib4/tsconfig.lib.json",
+              "libs/app0/lib6/childlib4/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib6/childlib4/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib6/childlib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib6-childlib5": {
+      "projectType": "library",
+      "root": "libs/app0/lib6/childlib5",
+      "sourceRoot": "libs/app0/lib6/childlib5/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib6/childlib5/tsconfig.lib.json",
+              "libs/app0/lib6/childlib5/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib6/childlib5/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib6/childlib5/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib6-childlib6": {
+      "projectType": "library",
+      "root": "libs/app0/lib6/childlib6",
+      "sourceRoot": "libs/app0/lib6/childlib6/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib6/childlib6/tsconfig.lib.json",
+              "libs/app0/lib6/childlib6/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib6/childlib6/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib6/childlib6/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib6-childlib7": {
+      "projectType": "library",
+      "root": "libs/app0/lib6/childlib7",
+      "sourceRoot": "libs/app0/lib6/childlib7/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib6/childlib7/tsconfig.lib.json",
+              "libs/app0/lib6/childlib7/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib6/childlib7/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib6/childlib7/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib6-childlib8": {
+      "projectType": "library",
+      "root": "libs/app0/lib6/childlib8",
+      "sourceRoot": "libs/app0/lib6/childlib8/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib6/childlib8/tsconfig.lib.json",
+              "libs/app0/lib6/childlib8/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib6/childlib8/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib6/childlib8/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib6-childlib9": {
+      "projectType": "library",
+      "root": "libs/app0/lib6/childlib9",
+      "sourceRoot": "libs/app0/lib6/childlib9/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib6/childlib9/tsconfig.lib.json",
+              "libs/app0/lib6/childlib9/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib6/childlib9/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib6/childlib9/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib7-lib7": {
+      "projectType": "library",
+      "root": "libs/app0/lib7/lib7",
+      "sourceRoot": "libs/app0/lib7/lib7/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib7/lib7/tsconfig.lib.json",
+              "libs/app0/lib7/lib7/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib7/lib7/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib7/lib7/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib7-childlib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib7/childlib0",
+      "sourceRoot": "libs/app0/lib7/childlib0/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib7/childlib0/tsconfig.lib.json",
+              "libs/app0/lib7/childlib0/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib7/childlib0/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib7/childlib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib7-childlib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib7/childlib1",
+      "sourceRoot": "libs/app0/lib7/childlib1/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib7/childlib1/tsconfig.lib.json",
+              "libs/app0/lib7/childlib1/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib7/childlib1/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib7/childlib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib7-childlib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib7/childlib2",
+      "sourceRoot": "libs/app0/lib7/childlib2/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib7/childlib2/tsconfig.lib.json",
+              "libs/app0/lib7/childlib2/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib7/childlib2/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib7/childlib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib7-childlib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib7/childlib3",
+      "sourceRoot": "libs/app0/lib7/childlib3/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib7/childlib3/tsconfig.lib.json",
+              "libs/app0/lib7/childlib3/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib7/childlib3/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib7/childlib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib7-childlib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib7/childlib4",
+      "sourceRoot": "libs/app0/lib7/childlib4/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib7/childlib4/tsconfig.lib.json",
+              "libs/app0/lib7/childlib4/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib7/childlib4/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib7/childlib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib7-childlib5": {
+      "projectType": "library",
+      "root": "libs/app0/lib7/childlib5",
+      "sourceRoot": "libs/app0/lib7/childlib5/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib7/childlib5/tsconfig.lib.json",
+              "libs/app0/lib7/childlib5/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib7/childlib5/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib7/childlib5/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib7-childlib6": {
+      "projectType": "library",
+      "root": "libs/app0/lib7/childlib6",
+      "sourceRoot": "libs/app0/lib7/childlib6/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib7/childlib6/tsconfig.lib.json",
+              "libs/app0/lib7/childlib6/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib7/childlib6/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib7/childlib6/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib7-childlib7": {
+      "projectType": "library",
+      "root": "libs/app0/lib7/childlib7",
+      "sourceRoot": "libs/app0/lib7/childlib7/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib7/childlib7/tsconfig.lib.json",
+              "libs/app0/lib7/childlib7/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib7/childlib7/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib7/childlib7/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib7-childlib8": {
+      "projectType": "library",
+      "root": "libs/app0/lib7/childlib8",
+      "sourceRoot": "libs/app0/lib7/childlib8/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib7/childlib8/tsconfig.lib.json",
+              "libs/app0/lib7/childlib8/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib7/childlib8/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib7/childlib8/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib7-childlib9": {
+      "projectType": "library",
+      "root": "libs/app0/lib7/childlib9",
+      "sourceRoot": "libs/app0/lib7/childlib9/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib7/childlib9/tsconfig.lib.json",
+              "libs/app0/lib7/childlib9/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib7/childlib9/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib7/childlib9/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib8-lib8": {
+      "projectType": "library",
+      "root": "libs/app0/lib8/lib8",
+      "sourceRoot": "libs/app0/lib8/lib8/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib8/lib8/tsconfig.lib.json",
+              "libs/app0/lib8/lib8/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib8/lib8/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib8/lib8/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib8-childlib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib8/childlib0",
+      "sourceRoot": "libs/app0/lib8/childlib0/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib8/childlib0/tsconfig.lib.json",
+              "libs/app0/lib8/childlib0/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib8/childlib0/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib8/childlib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib8-childlib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib8/childlib1",
+      "sourceRoot": "libs/app0/lib8/childlib1/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib8/childlib1/tsconfig.lib.json",
+              "libs/app0/lib8/childlib1/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib8/childlib1/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib8/childlib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib8-childlib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib8/childlib2",
+      "sourceRoot": "libs/app0/lib8/childlib2/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib8/childlib2/tsconfig.lib.json",
+              "libs/app0/lib8/childlib2/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib8/childlib2/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib8/childlib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib8-childlib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib8/childlib3",
+      "sourceRoot": "libs/app0/lib8/childlib3/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib8/childlib3/tsconfig.lib.json",
+              "libs/app0/lib8/childlib3/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib8/childlib3/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib8/childlib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib8-childlib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib8/childlib4",
+      "sourceRoot": "libs/app0/lib8/childlib4/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib8/childlib4/tsconfig.lib.json",
+              "libs/app0/lib8/childlib4/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib8/childlib4/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib8/childlib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib8-childlib5": {
+      "projectType": "library",
+      "root": "libs/app0/lib8/childlib5",
+      "sourceRoot": "libs/app0/lib8/childlib5/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib8/childlib5/tsconfig.lib.json",
+              "libs/app0/lib8/childlib5/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib8/childlib5/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib8/childlib5/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib8-childlib6": {
+      "projectType": "library",
+      "root": "libs/app0/lib8/childlib6",
+      "sourceRoot": "libs/app0/lib8/childlib6/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib8/childlib6/tsconfig.lib.json",
+              "libs/app0/lib8/childlib6/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib8/childlib6/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib8/childlib6/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib8-childlib7": {
+      "projectType": "library",
+      "root": "libs/app0/lib8/childlib7",
+      "sourceRoot": "libs/app0/lib8/childlib7/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib8/childlib7/tsconfig.lib.json",
+              "libs/app0/lib8/childlib7/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib8/childlib7/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib8/childlib7/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib8-childlib8": {
+      "projectType": "library",
+      "root": "libs/app0/lib8/childlib8",
+      "sourceRoot": "libs/app0/lib8/childlib8/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib8/childlib8/tsconfig.lib.json",
+              "libs/app0/lib8/childlib8/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib8/childlib8/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib8/childlib8/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib8-childlib9": {
+      "projectType": "library",
+      "root": "libs/app0/lib8/childlib9",
+      "sourceRoot": "libs/app0/lib8/childlib9/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib8/childlib9/tsconfig.lib.json",
+              "libs/app0/lib8/childlib9/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib8/childlib9/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib8/childlib9/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib9-lib9": {
+      "projectType": "library",
+      "root": "libs/app0/lib9/lib9",
+      "sourceRoot": "libs/app0/lib9/lib9/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib9/lib9/tsconfig.lib.json",
+              "libs/app0/lib9/lib9/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib9/lib9/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib9/lib9/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib9-childlib0": {
+      "projectType": "library",
+      "root": "libs/app0/lib9/childlib0",
+      "sourceRoot": "libs/app0/lib9/childlib0/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib9/childlib0/tsconfig.lib.json",
+              "libs/app0/lib9/childlib0/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib9/childlib0/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib9/childlib0/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib9-childlib1": {
+      "projectType": "library",
+      "root": "libs/app0/lib9/childlib1",
+      "sourceRoot": "libs/app0/lib9/childlib1/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib9/childlib1/tsconfig.lib.json",
+              "libs/app0/lib9/childlib1/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib9/childlib1/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib9/childlib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib9-childlib2": {
+      "projectType": "library",
+      "root": "libs/app0/lib9/childlib2",
+      "sourceRoot": "libs/app0/lib9/childlib2/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib9/childlib2/tsconfig.lib.json",
+              "libs/app0/lib9/childlib2/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib9/childlib2/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib9/childlib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib9-childlib3": {
+      "projectType": "library",
+      "root": "libs/app0/lib9/childlib3",
+      "sourceRoot": "libs/app0/lib9/childlib3/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib9/childlib3/tsconfig.lib.json",
+              "libs/app0/lib9/childlib3/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib9/childlib3/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib9/childlib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib9-childlib4": {
+      "projectType": "library",
+      "root": "libs/app0/lib9/childlib4",
+      "sourceRoot": "libs/app0/lib9/childlib4/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib9/childlib4/tsconfig.lib.json",
+              "libs/app0/lib9/childlib4/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib9/childlib4/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib9/childlib4/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib9-childlib5": {
+      "projectType": "library",
+      "root": "libs/app0/lib9/childlib5",
+      "sourceRoot": "libs/app0/lib9/childlib5/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib9/childlib5/tsconfig.lib.json",
+              "libs/app0/lib9/childlib5/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib9/childlib5/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib9/childlib5/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib9-childlib6": {
+      "projectType": "library",
+      "root": "libs/app0/lib9/childlib6",
+      "sourceRoot": "libs/app0/lib9/childlib6/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib9/childlib6/tsconfig.lib.json",
+              "libs/app0/lib9/childlib6/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib9/childlib6/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib9/childlib6/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib9-childlib7": {
+      "projectType": "library",
+      "root": "libs/app0/lib9/childlib7",
+      "sourceRoot": "libs/app0/lib9/childlib7/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib9/childlib7/tsconfig.lib.json",
+              "libs/app0/lib9/childlib7/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib9/childlib7/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib9/childlib7/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib9-childlib8": {
+      "projectType": "library",
+      "root": "libs/app0/lib9/childlib8",
+      "sourceRoot": "libs/app0/lib9/childlib8/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib9/childlib8/tsconfig.lib.json",
+              "libs/app0/lib9/childlib8/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib9/childlib8/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib9/childlib8/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "app0-lib9-childlib9": {
+      "projectType": "library",
+      "root": "libs/app0/lib9/childlib9",
+      "sourceRoot": "libs/app0/lib9/childlib9/src",
+      "prefix": "rdt",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app0/lib9/childlib9/tsconfig.lib.json",
+              "libs/app0/lib9/childlib9/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app0/lib9/childlib9/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app0/lib9/childlib9/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "app0"
 }
